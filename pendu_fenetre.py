@@ -67,6 +67,7 @@ class pendu_fenetre():
         return self.answer
     def check(self):
         letter = self.letter.get()
+        temp = self.answer.count('*')
         if len(letter) == 1:
             if self.counter >= 0:
                 found = len(self.answer) - self.answer.count('*')
@@ -78,7 +79,8 @@ class pendu_fenetre():
                     message = 'Congratulations. You found it.\n\n' 
                     xCoord = 65
                 else:
-                    self.counter -= 1
+                    if temp <= result: 
+                        self.counter -= 1
                     s = 's'
                     if self.counter == 1:
                         s = ''
